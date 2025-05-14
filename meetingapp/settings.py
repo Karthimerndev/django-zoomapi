@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / '.env')
 
 
 # Quick-start development settings - unsuitable for production
@@ -142,7 +144,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
 
-ZOOM_ACCOUNT = 'x6hkE3ByTDq-9K6p6QpP2g'
-ZOOM_CLIENT_ID = 'JVBCPmETQ1ihoyiW6UamVA'
-ZOOM_CLIENT_SECRET = 'eIWfZtz2dFZw2OnixAeo8CF9rD83P2rK'
+ZOOM_ACCOUNT = os.getenv('ZOOM_ACCOUNT')
+ZOOM_CLIENT_ID = os.getenv('ZOOM_CLIENT_ID')
+ZOOM_CLIENT_SECRET = os.getenv('ZOOM_CLIENT_SECRET')
 AUTH_USER_MODEL = 'core.User'
